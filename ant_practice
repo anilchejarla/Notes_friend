@@ -1,0 +1,1224 @@
+:~/Downloads/apache-ant-1.9.9/bin$ cd
+gamut@gamutgurus:~$ ant
+Buildfile: build.xml does not exist!
+Build failed
+gamut@gamutgurus:~$ ls
+ant-practice         Documents         proxytem                    Templates
+apt-transport-https  Downloads         shellscript                 Videos
+ca-certificates      examples.desktop  software-properties-common
+curl                 practice          src
+Distros              practice.sh       supriya
+gamut@gamutgurus:~$ cd src
+gamut@gamutgurus:~/src$ ls
+build.xml
+gamut@gamutgurus:~/src$ ant
+Buildfile: /home/gamut/src/build.xml
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+gamut@gamutgurus:~/src$ vim build.xml 
+gamut@gamutgurus:~/src$ ant class
+Buildfile: /home/gamut/src/build.xml
+
+class:
+     [echo] hello all
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+gamut@gamutgurus:~/src$ cd
+gamut@gamutgurus:~$ ls
+ant-practice         Documents         proxytem                    Templates
+apt-transport-https  Downloads         shellscript                 Videos
+ca-certificates      examples.desktop  software-properties-common
+curl                 practice          src
+Distros              practice.sh       supriya
+gamut@gamutgurus:~$ mkdir mypre
+gamut@gamutgurus:~$ ls
+ant-practice         Documents         practice.sh                 supriya
+apt-transport-https  Downloads         proxytem                    Templates
+ca-certificates      examples.desktop  shellscript                 Videos
+curl                 mypre             software-properties-common
+Distros              practice          src
+gamut@gamutgurus:~$ cd mypre/
+gamut@gamutgurus:~/mypre$ ls
+gamut@gamutgurus:~/mypre$ vim build.xml
+gamut@gamutgurus:~/mypre$ mkdir src
+gamut@gamutgurus:~/mypre$ ls
+build.xml  src
+gamut@gamutgurus:~/mypre$ ls
+build.xml  src
+gamut@gamutgurus:~/mypre$ cd src
+gamut@gamutgurus:~/mypre/src$ vim login.java
+gamut@gamutgurus:~/mypre/src$ javac login.java
+login.java:1: error: '{' expected
+class login
+           ^
+login.java:4: error: <identifier> expected
+System.out.println("hello");
+                  ^
+login.java:4: error: illegal start of type
+System.out.println("hello");
+                   ^
+3 errors
+gamut@gamutgurus:~/mypre/src$ vim login.java
+gamut@gamutgurus:~/mypre/src$ javac login.java
+login.java:3: error: invalid method declaration; return type required
+public static voidmain(Strings args[])
+              ^
+1 error
+gamut@gamutgurus:~/mypre/src$ vim login.java
+gamut@gamutgurus:~/mypre/src$ javac login.java
+login.java:3: error: cannot find symbol
+public static void main(Strings args[])
+                        ^
+  symbol:   class Strings
+  location: class login
+1 error
+gamut@gamutgurus:~/mypre/src$ vim login.java
+gamut@gamutgurus:~/mypre/src$ javac login.java
+gamut@gamutgurus:~/mypre/src$ ls
+login.class  login.java
+gamut@gamutgurus:~/mypre/src$ rm -rf login.class 
+gamut@gamutgurus:~/mypre/src$ ls
+login.java
+gamut@gamutgurus:~/mypre/src$ cd ..
+gamut@gamutgurus:~/mypre$ ls
+build.xml  src
+gamut@gamutgurus:~/mypre$ vi build.xml 
+gamut@gamutgurus:~/mypre$ ant
+Buildfile: /home/gamut/mypre/build.xml
+
+BUILD FAILED
+Target "classes" does not exist in the project "gamut". It is used from target "compile".
+
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ vi build.xml 
+gamut@gamutgurus:~/mypre$ ant
+Buildfile: /home/gamut/mypre/build.xml
+
+BUILD FAILED
+Target "classes" does not exist in the project "gamut". It is used from target "compile".
+
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ vi build.xml 
+gamut@gamutgurus:~/mypre$ ls
+build.xml  src
+gamut@gamutgurus:~/mypre$ vim build.xml 
+gamut@gamutgurus:~/mypre$ and
+The program 'and' is currently not installed. You can install it by typing:
+sudo apt install and
+gamut@gamutgurus:~/mypre$ ant
+Buildfile: /home/gamut/mypre/build.xml
+     [echo] project is xxxxx
+
+BUILD FAILED
+Target "classes" does not exist in the project "gamut". It is used from target "package".
+
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ vim build.xml 
+gamut@gamutgurus:~/mypre$ ant
+Buildfile: /home/gamut/mypre/build.xml
+     [echo] project is xxxxx
+
+compile:
+    [mkdir] Created dir: /home/gamut/mypre/gamut.class
+    [javac] /home/gamut/mypre/build.xml:6: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 1 source file to /home/gamut/mypre/gamut.class
+
+package:
+    [mkdir] Created dir: /home/gamut/mypre/lib
+      [jar] Building jar: /home/gamut/mypre/lib/app.jar
+
+BUILD SUCCESSFUL
+Total time: 2 seconds
+gamut@gamutgurus:~/mypre$ ls
+build.xml  gamut.class  lib  src
+gamut@gamutgurus:~/mypre$ cd lib/
+gamut@gamutgurus:~/mypre/lib$ ls
+app.jar
+gamut@gamutgurus:~/mypre/lib$ cd ..
+gamut@gamutgurus:~/mypre$ ls
+build.xml  gamut.class  lib  src
+gamut@gamutgurus:~/mypre$ cd gamut.class/
+gamut@gamutgurus:~/mypre/gamut.class$ ls
+login.class
+gamut@gamutgurus:~/mypre/gamut.class$ cd ..
+gamut@gamutgurus:~/mypre$ ls
+build.xml  gamut.class  lib  src
+gamut@gamutgurus:~/mypre$ cat build.xml 
+<project name="gamut"  default="package" basedir=".">
+<echo message="project is xxxxx"/>
+
+<target name="compile">
+<mkdir dir="gamut.class"/>
+<javac srcdir="src" destdir="gamut.class"/>
+</target>
+
+<target name="package" depends="compile">
+<mkdir dir="lib"/>
+<jar basedir="gamut.class" destfile="lib/app.jar"/>
+</target>
+
+</project>
+gamut@gamutgurus:~/mypre$ vim build.xml 
+gamut@gamutgurus:~/mypre$ rm -rf lib/
+gamut@gamutgurus:~/mypre$ ls
+build.xml  gamut.class  src
+gamut@gamutgurus:~/mypre$ rm -rf gamut.class/
+gamut@gamutgurus:~/mypre$ ls
+build.xml  src
+gamut@gamutgurus:~/mypre$ ant
+Buildfile: /home/gamut/mypre/build.xml
+     [echo] project is xxxxx
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ ls
+build.xml  src
+gamut@gamutgurus:~/mypre$ ant compile
+Buildfile: /home/gamut/mypre/build.xml
+     [echo] project is xxxxx
+
+compile:
+    [mkdir] Created dir: /home/gamut/mypre/gamut.class
+    [javac] /home/gamut/mypre/build.xml:6: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 1 source file to /home/gamut/mypre/gamut.class
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ ls
+build.xml  gamut.class  src
+gamut@gamutgurus:~/mypre$ cd gamut.class/
+gamut@gamutgurus:~/mypre/gamut.class$ ls
+login.class
+gamut@gamutgurus:~/mypre/gamut.class$ cd ..
+gamut@gamutgurus:~/mypre$ ant package
+Buildfile: /home/gamut/mypre/build.xml
+     [echo] project is xxxxx
+
+compile:
+    [javac] /home/gamut/mypre/build.xml:6: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+
+package:
+    [mkdir] Created dir: /home/gamut/mypre/lib
+      [jar] Building jar: /home/gamut/mypre/lib/app.jar
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ ls
+build.xml  gamut.class  lib  src
+gamut@gamutgurus:~/mypre$ c dl
+c: command not found
+gamut@gamutgurus:~/mypre$ cd lib/
+gamut@gamutgurus:~/mypre/lib$ ls
+app.jar
+gamut@gamutgurus:~/mypre/lib$ cd ..
+gamut@gamutgurus:~/mypre$ vim
+gamut@gamutgurus:~/mypre$ vim build.xml 
+gamut@gamutgurus:~/mypre$ vim build.xml 
+gamut@gamutgurus:~/mypre$ ant
+Buildfile: /home/gamut/mypre/build.xml
+     [echo] project is xxxxx
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ ls
+build.xml  gamut.class  lib  src
+gamut@gamutgurus:~/mypre$ vim build.xml 
+gamut@gamutgurus:~/mypre$ ls
+build.xml  gamut.class  lib  src
+gamut@gamutgurus:~/mypre$ ant
+Buildfile: /home/gamut/mypre/build.xml
+     [echo] project is xxxxx
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ ls
+build.xml  gamut.class  lib  src
+gamut@gamutgurus:~/mypre$ ant clean
+Buildfile: /home/gamut/mypre/build.xml
+     [echo] project is xxxxx
+
+clean:
+   [delete] Deleting directory /home/gamut/mypre/lib
+   [delete] Deleting directory /home/gamut/mypre/gamut.class
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ ls
+build.xml  src
+gamut@gamutgurus:~/mypre$ vim build.xml 
+gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ ls
+build.xml  src
+gamut@gamutgurus:~/mypre$ vi build.xml 
+gamut@gamutgurus:~/mypre$ ant
+Buildfile: /home/gamut/mypre/build.xml
+
+BUILD FAILED
+/home/gamut/mypre/build.xml:2: Element type "project" must be followed by either attribute specifications, ">" or "/>".
+
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ ant clean
+Buildfile: /home/gamut/mypre/build.xml
+
+BUILD FAILED
+/home/gamut/mypre/build.xml:2: Element type "project" must be followed by either attribute specifications, ">" or "/>".
+
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ vi build.xml 
+gamut@gamutgurus:~/mypre$ ant
+Buildfile: /home/gamut/mypre/build.xml
+     [echo] project is gamut
+
+compile:
+    [mkdir] Created dir: /home/gamut/mypre/gamut.class
+    [javac] /home/gamut/mypre/build.xml:6: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 1 source file to /home/gamut/mypre/gamut.class
+
+package:
+    [mkdir] Created dir: /home/gamut/mypre/lib
+      [jar] Building jar: /home/gamut/mypre/lib/app.jar
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ ls
+build.xml  gamut.class  lib  src
+gamut@gamutgurus:~/mypre$ ant clean
+Buildfile: /home/gamut/mypre/build.xml
+     [echo] project is gamut
+
+clean:
+   [delete] Deleting directory /home/gamut/mypre/lib
+   [delete] Deleting directory /home/gamut/mypre/gamut.class
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ ls
+build.xml  src
+gamut@gamutgurus:~/mypre$ vi build.xml 
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/Downloads/apache-ant-1.9.9/bin$ cd
+bash: gamut@gamutgurus:~/Downloads/apache-ant-1.9.9/bin$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~$ ant
+gamut@gamutgurus:~$: command not found
+gamut@gamutgurus:~/mypre$ Buildfile: build.xml does not exist!
+Buildfile:: command not found
+gamut@gamutgurus:~/mypre$ Build failed
+No command 'Build' found, did you mean:
+ Command 'guild' from package 'guile-2.0-dev' (main)
+Build: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~$ ls
+gamut@gamutgurus:~$: command not found
+gamut@gamutgurus:~/mypre$ ant-practice         Documents         proxytem                    Templates
+ant-practice: command not found
+gamut@gamutgurus:~/mypre$ apt-transport-https  Downloads         shellscript                 Videos
+apt-transport-https: command not found
+gamut@gamutgurus:~/mypre$ ca-certificates      examples.desktop  software-properties-common
+ca-certificates: command not found
+gamut@gamutgurus:~/mypre$ curl                 practice          src
+curl: (6) Could not resolve host: practice
+curl: (6) Could not resolve host: src
+gamut@gamutgurus:~/mypre$ Distros              practice.sh       supriya
+Distros: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~$ cd src
+gamut@gamutgurus:~$: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/src$ ls
+bash: gamut@gamutgurus:~/src$: No such file or directory
+gamut@gamutgurus:~/mypre$ build.xml
+build.xml: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/src$ ant
+bash: gamut@gamutgurus:~/src$: No such file or directory
+gamut@gamutgurus:~/mypre$ Buildfile: /home/gamut/src/build.xml
+Buildfile:: command not found
+gamut@gamutgurus:~/mypre$ 
+:gamut@gamutgurus:~/mypre$ BUILD SUCCESSFUL
+BUILD: command not found
+gamut@gamutgurus:~/mypre$ Total time: 0 seconds
+No command 'Total' found, did you mean:
+ Command 'total' from package 'radiance' (universe)
+Total: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/src$ vim build.xml 
+bash: gamut@gamutgurus:~/src$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/src$ ant class
+bash: gamut@gamutgurus:~/src$: No such file or directory
+gamut@gamutgurus:~/mypre$ Buildfile: /home/gamut/src/build.xml
+Buildfile:: command not found
+gamut@gamutgurus:~/mypre$ 
+ugamut@gamutgurus:~/mypre$ class:
+class:: command not found
+gamut@gamutgurus:~/mypre$      [echo] hello all
+[echo]: command not found
+gamut@gamutgurus:~/mypre$ 
+dgamut@gamutgurus:~/mypre$ BUILD SUCCESSFUL
+BUILD: command not found
+gamut@gamutgurus:~/mypre$ Total time: 0 seconds
+No command 'Total' found, did you mean:
+ Command 'total' from package 'radiance' (universe)
+Total: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/src$ cd
+bash: gamut@gamutgurus:~/src$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~$ ls
+gamut@gamutgurus:~$: command not found
+gamut@gamutgurus:~/mypre$ ant-practice         Documents         proxytem                    Templates
+ant-practice: command not found
+gamut@gamutgurus:~/mypre$ apt-transport-https  Downloads         shellscript                 Videos
+apt-transport-https: command not found
+gamut@gamutgurus:~/mypre$ ca-certificates      examples.desktop  software-properties-common
+ca-certificates: command not found
+gamut@gamutgurus:~/mypre$ curl                 practice          src
+curl: (6) Could not resolve host: practice
+curl: (6) Could not resolve host: src
+gamut@gamutgurus:~/mypre$ Distros              practice.sh       supriya
+Distros: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~$ mkdir mypre
+gamut@gamutgurus:~$: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~$ ls
+gamut@gamutgurus:~$: command not found
+gamut@gamutgurus:~/mypre$ ant-practice         Documents         practice.sh                 supriya
+ant-practice: command not found
+gamut@gamutgurus:~/mypre$ apt-transport-https  Downloads         proxytem                    Templates
+apt-transport-https: command not found
+gamut@gamutgurus:~/mypre$ ca-certificates      examples.desktop  shellscript                 Videos
+ca-certificates: command not found
+gamut@gamutgurus:~/mypre$ curl                 mypre             software-properties-common
+curl: (6) Could not resolve host: mypre
+curl: (6) Could not resolve host: software-properties-common
+gamut@gamutgurus:~/mypre$ Distros              practice          src
+Distros: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~$ cd mypre/
+gamut@gamutgurus:~$: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ls
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ vim build.xml
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ mkdir src
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ls
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ build.xml  src
+build.xml: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ls
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ build.xml  src
+build.xml: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ cd src
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre/src$ vim login.java
+bash: gamut@gamutgurus:~/mypre/src$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre/src$ javac login.java
+bash: gamut@gamutgurus:~/mypre/src$: No such file or directory
+gamut@gamutgurus:~/mypre$ login.java:1: error: '{' expected
+login.java:1:: command not found
+gamut@gamutgurus:~/mypre$ class login
+No command 'class' found, did you mean:
+ Command 'iclass' from package 'ivtools-bin' (universe)
+ Command 'clasp' from package 'clasp' (universe)
+class: command not found
+gamut@gamutgurus:~/mypre$            ^
+^: command not found
+gamut@gamutgurus:~/mypre$ login.java:4: error: <identifier> expected
+bash: identifier: No such file or directory
+gamut@gamutgurus:~/mypre$ System.out.println("hello");
+bash: syntax error near unexpected token `"hello"'
+gamut@gamutgurus:~/mypre$                   ^
+^: command not found
+gamut@gamutgurus:~/mypre$ login.java:4: error: illegal start of type
+login.java:4:: command not found
+gamut@gamutgurus:~/mypre$ System.out.println("hello");
+bash: syntax error near unexpected token `"hello"'
+gamut@gamutgurus:~/mypre$                    ^
+^: command not found
+gamut@gamutgurus:~/mypre$ 3 errors
+3: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre/src$ vim login.java
+bash: gamut@gamutgurus:~/mypre/src$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre/src$ javac login.java
+bash: gamut@gamutgurus:~/mypre/src$: No such file or directory
+gamut@gamutgurus:~/mypre$ login.java:3: error: invalid method declaration; return type required
+login.java:3:: command not found
+bash: return: type: numeric argument required
+bash: return: can only `return' from a function or sourced script
+gamut@gamutgurus:~/mypre$ public static voidmain(Strings args[])
+bash: syntax error near unexpected token `('
+gamut@gamutgurus:~/mypre$               ^
+^: command not found
+gamut@gamutgurus:~/mypre$ 1 error
+1: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre/src$ vim login.java
+bash: gamut@gamutgurus:~/mypre/src$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre/src$ javac login.java
+bash: gamut@gamutgurus:~/mypre/src$: No such file or directory
+gamut@gamutgurus:~/mypre$ login.java:3: error: cannot find symbol
+login.java:3:: command not found
+gamut@gamutgurus:~/mypre$ public static void main(Strings args[])
+bash: syntax error near unexpected token `('
+gamut@gamutgurus:~/mypre$                         ^
+^: command not found
+gamut@gamutgurus:~/mypre$   symbol:   class Strings
+symbol:: command not found
+gamut@gamutgurus:~/mypre$   location: class login
+location:: command not found
+gamut@gamutgurus:~/mypre$ 1 error
+1: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre/src$ vim login.java
+bash: gamut@gamutgurus:~/mypre/src$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre/src$ javac login.java
+bash: gamut@gamutgurus:~/mypre/src$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre/src$ ls
+bash: gamut@gamutgurus:~/mypre/src$: No such file or directory
+gamut@gamutgurus:~/mypre$ login.class  login.java
+login.class: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre/src$ rm -rf login.class 
+bash: gamut@gamutgurus:~/mypre/src$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre/src$ ls
+bash: gamut@gamutgurus:~/mypre/src$: No such file or directory
+gamut@gamutgurus:~/mypre$ login.java
+login.java: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre/src$ cd ..
+bash: gamut@gamutgurus:~/mypre/src$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ls
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ build.xml  src
+build.xml: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ vi build.xml 
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ant
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ Buildfile: /home/gamut/mypre/build.xml
+Buildfile:: command not found
+gamut@gamutgurus:~/mypre$ 
+ygamut@gamutgurus:~/mypre$ BUILD FAILED
+BUILD: command not found
+gamut@gamutgurus:~/mypre$ Target "classes" does not exist in the project "gamut". It is used from target "compile".
+Target: command not found
+gamut@gamutgurus:~/mypre$ 
+ygamut@gamutgurus:~/mypre$ Total time: 0 seconds
+No command 'Total' found, did you mean:
+ Command 'total' from package 'radiance' (universe)
+Total: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ vi build.xml 
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ant
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ Buildfile: /home/gamut/mypre/build.xml
+Buildfile:: command not found
+gamut@gamutgurus:~/mypre$ 
+sgamut@gamutgurus:~/mypre$ BUILD FAILED
+BUILD: command not found
+gamut@gamutgurus:~/mypre$ Target "classes" does not exist in the project "gamut". It is used from target "compile".
+Target: command not found
+gamut@gamutgurus:~/mypre$ 
+ gamut@gamutgurus:~/mypre$ Total time: 0 seconds
+No command 'Total' found, did you mean:
+ Command 'total' from package 'radiance' (universe)
+Total: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ vi build.xml 
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ls
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ build.xml  src
+build.xml: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ vim build.xml 
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ and
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ The program 'and' is currently not installed. You can install it by typing:
+No command 'The' found, did you mean:
+ Command 'the' from package 'the' (universe)
+The: command not found
+gamut@gamutgurus:~/mypre$ sudo apt install and
+[sudo] password for gamut: 
+Sorry, try again.
+[sudo] password for gamut: 
+urus:~$ cd src
+gamut@gamutgurus:~/src$ ls
+build.xml
+gamut@gamutgurus:~/src$ ant
+Buildfile: /home/gamut/src/build.xml
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+gamut@gamutgurus:~/src$ vim build.xml 
+gamut@gamutgurus:~/src$ ant class
+Buildfile: /home/gamut/src/build.xml
+
+class:
+     [echo] hello all
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+gamut@gamutgurus:~/src$ cd
+gamut@gamutgurus:~$ ls
+ant-practice         Documents         proxytem                    Templates
+apt-transport-https  Downloads         shellscript                 Videos
+ca-certificates      examples.desktop  software-properties-common
+curl                 practice          src
+Distros              practice.sh       supriya
+gamut@gamutgurus:~$ mkdir mypre
+gamut@gamutgurus:~$ ls
+ant-practice         Documents         practice.sh                 supriya
+apt-transport-https  Downloads         proxytem                    Templates
+ca-certificates      examples.desktop  shellscript                 Videos
+curl                 mypre             software-properties-common
+Distros              practice          src
+gamut@gamutgurus:~$ cd mypre/
+gamut@gamutgurus:~/mypre$ ls
+gamut@gamutgurus:~/mypre$ vim build.xml
+gamut@gamutgurus:~/mypre$ mkdir src
+gamut@gamutgurus:~/mypre$ ls
+build.xml  src
+gamut@gamutgurus:~/mypre$ ls
+build.xml  src
+gamut@gamutgurus:~/mypre$ cd src
+gamut@gamutgurus:~/mypre/src$ vim login.java
+gamut@gamutgurus:~/mypre/src$ javac login.java
+login.java:1: error: '{' expected
+class login
+           ^
+login.java:4: error: <identifier> expected
+System.out.println("hello");
+                  ^
+login.java:4: error: illegal start of type
+System.out.println("hello");
+                   ^
+3 errors
+gamut@gamutgurus:~/mypre/src$ vim login.java
+gamut@gamutgurus:~/mypre/src$ javac login.java
+login.java:3: error: invalid method declaration; return type required
+public static voidmain(Strings args[])
+              ^
+1 error
+gamut@gamutgurus:~/mypre/src$ vim login.java
+gamut@gamutgurus:~/mypre/src$ javac login.java
+login.java:3: error: cannot find symbol
+public static void main(Strings args[])
+                        ^
+  symbol:   class Strings
+  location: class login
+1 error
+gamut@gamutgurus:~/mypre/src$ vim login.java
+gamut@gamutgurus:~/mypre/src$ javac login.java
+gamut@gamutgurus:~/mypre/src$ ls
+login.class  login.java
+gamut@gamutgurus:~/mypre/src$ rm -rf login.class 
+gamut@gamutgurus:~/mypre/src$ ls
+login.java
+gamut@gamutgurus:~/mypre/src$ cd ..
+gamut@gamutgurus:~/mypre$ ls
+build.xml  src
+gamut@gamutgurus:~/mypre$ vi build.xml 
+gamut@gamutgurus:~/mypre$ ant
+Buildfile: /home/gamut/mypre/build.xml
+
+BUILD FAILED
+Target "classes" does not exist in the project "gamut". It is used from target "compile".
+
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ vi build.xml 
+gamut@gamutgurus:~/mypre$ ant
+Buildfile: /home/gamut/mypre/build.xml
+
+BUILD FAILED
+Target "classes" does not exist in the project "gamut". It is used from target "compile".
+
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ vi build.xml 
+gamut@gamutgurus:~/mypre$ ls
+build.xml  src
+gamut@gamutgurus:~/mypre$ vim build.xml 
+gamut@gamutgurus:~/mypre$ and
+The program 'and' is currently not installed. You can install it by typing:
+sudo apt install and
+gamut@gamutgurus:~/mypre$ ant
+Buildfile: /home/gamut/mypre/build.xml
+     [echo] project is xxxxx
+
+BUILD FAILED
+Target "classes" does not exist in the project "gamut". It is used from target "package".
+
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ vim build.xml 
+gamut@gamutgurus:~/mypre$ ant
+Buildfile: /home/gamut/mypre/build.xml
+     [echo] project is xxxxx
+
+compile:
+    [mkdir] Created dir: /home/gamut/mypre/gamut.class
+    [javac] /home/gamut/mypre/build.xml:6: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 1 source file to /home/gamut/mypre/gamut.class
+
+package:
+    [mkdir] Created dir: /home/gamut/mypre/lib
+      [jar] Building jar: /home/gamut/mypre/lib/app.jar
+
+BUILD SUCCESSFUL
+Total time: 2 seconds
+gamut@gamutgurus:~/mypre$ ls
+build.xml  gamut.class  lib  src
+gamut@gamuSorry, try again.
+[sudo] password for gamut: 
+ cd lib/
+gamut@gamutgurus:~/mypre/lib$ ls
+app.jar
+gamut@gamutgurus:~/mypre/lib$ cd ..
+gamut@gamutgurus:~/mypre$ ls
+build.xml  gamut.class  lib  src
+gamut@gamutgurus:~/mypre$ cd gamut.class/
+gamut@gamutgurus:~/mypre/gamut.class$ ls
+login.class
+gamut@gamutgurus:~/mypre/gamut.class$ cd ..
+gamut@gamutgurus:~/mypre$ ls
+build.xml  gamut.class  lib  src
+gamut@gamutgurus:~/mypre$ cat build.xml 
+<project name="gamut"  default="package" basedir=".">
+<echo message="project is xxxxx"/>
+
+<target name="compile">
+<mkdir dir="gamut.class"/>
+<javac srcdir="src" destdir="gamut.class"/>
+</target>
+
+<target name="package" depends="compile">
+<mkdir dir="lib"/>
+<jar basedir="gamut.class" destfile="lib/app.jar"/>
+</target>
+
+</project>
+gamut@gamutgurus:~/mypre$ vim build.xml 
+gamut@gamutgurus:~/mypre$ rm -rf lib/
+gamut@gamutgurus:~/mypre$ ls
+build.xml  gamut.class  src
+gamut@gamutgurus:~/mypre$ rm -rf gamut.class/
+gamut@gamutgurus:~/mypre$ ls
+build.xml  src
+gamut@gamutgurus:~/mypre$ ant
+Buildfile: /home/gamut/mypre/build.xml
+     [echo] project is xxxxx
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ ls
+build.xml  src
+gamut@gamutgurus:~/mypre$ ant compile
+Buildfile: /home/gamut/mypre/build.xml
+     [echo] project is xxxxx
+
+compile:
+    [mkdir] Created dir: /home/gamut/mypre/gamut.class
+    [javac] /home/gamut/mypre/build.xml:6: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 1 source file to /home/gamut/mypre/gamut.class
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ ls
+build.xml  gamut.class  src
+gamut@gamutgurus:~/mypre$ cd gamut.class/
+gamut@gamutgurus:~/mypre/gamut.class$ ls
+login.class
+gamut@gamutgurus:~/mypre/gamut.class$ cd ..
+gamut@gamutgurus:~/mypre$ ant package
+Buildfile: /home/gamut/mypre/build.xml
+     [echo] project is xxxxx
+
+compile:
+    [javac] /home/gamut/mypre/build.xml:6: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+
+package:
+    [mkdir] Created dir: /home/gamut/mypre/lib
+      [jar] Building jar: /home/gamut/mypre/lib/app.jar
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ ls
+build.xml  gamut.class  lib  src
+gamut@gamutgurus:~/mypre$ c dl
+c: command not found
+gamut@gamutgurus:~/mypre$ cd lib/
+gamut@gamutgurus:~/mypre/lib$ ls
+app.jar
+gamut@gamutgurus:~/mypre/lib$ cd ..
+gamut@gamutgurus:~/mypre$ vim
+gamut@gamutgurus:~/mypre$ vim build.xml 
+gamut@gamutgurus:~/mypre$ vim build.xml 
+gamut@gamutgurus:~/mypre$ ant
+Buildfile: /home/gamut/mypre/build.xml
+     [echo] project is xxxxx
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ ls
+build.xml  gamut.class  lib  src
+gamut@gamutgurus:~/mypre$ vim build.xml 
+gamut@gamutgurus:~/mypre$ ls
+build.xml  gamut.class  lib  src
+gamut@gamutgurus:~/mypre$ ant
+Buildfile: /home/gamut/mypre/build.xml
+     [echo] project is xxxxx
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ ls
+build.xml  gamut.class  lib  src
+gamut@gamutgurus:~/mypre$ ant clean
+Buildfile: /home/gamut/mypre/build.xml
+     [echo] project is xxxxx
+
+clean:
+   [delete] Deleting directory /home/gamut/mypre/lib
+   [delete] Deleting directory /home/gamut/mypre/gamut.class
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+gamut@gamutgurus:~/mypre$ ls
+build.xml  src
+gamut@gamutgurus:~/mypre$ vim build.xml 
+gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">sudo: 3 incorrect password attempts
+gamut@gamutgurus:~/mypre$  cd lib/
+bash: cd: lib/: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre/lib$ ls
+bash: gamut@gamutgurus:~/mypre/lib$: No such file or directory
+gamut@gamutgurus:~/mypre$ app.jar
+app.jar: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre/lib$ cd ..
+bash: gamut@gamutgurus:~/mypre/lib$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ls
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ build.xml  gamut.class  lib  src
+build.xml: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ cd gamut.class/
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre/gamut.class$ ls
+bash: gamut@gamutgurus:~/mypre/gamut.class$: No such file or directory
+gamut@gamutgurus:~/mypre$ login.class
+login.class: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre/gamut.class$ cd ..
+bash: gamut@gamutgurus:~/mypre/gamut.class$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ls
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ build.xml  gamut.class  lib  src
+build.xml: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ cat build.xml 
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ <project name="gamut"  default="package" basedir=".">
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <echo message="project is xxxxx"/>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ 
+gamut@gamutgurus:~/mypre$ <target name="compile">
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <mkdir dir="gamut.class"/>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <javac srcdir="src" destdir="gamut.class"/>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ </target>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ 
+gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ <jar basedir="gamut.class" destfile="lib/app.jar"/>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ </target>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ 
+gamut@gamutgurus:~/mypre$ </project>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ vim build.xml 
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ rm -rf lib/
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ls
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ build.xml  gamut.class  src
+build.xml: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ rm -rf gamut.class/
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ls
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ build.xml  src
+build.xml: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ant
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ Buildfile: /home/gamut/mypre/build.xml
+Buildfile:: command not found
+gamut@gamutgurus:~/mypre$      [echo] project is xxxxx
+[echo]: command not found
+gamut@gamutgurus:~/mypre$ 
+egamut@gamutgurus:~/mypre$ BUILD SUCCESSFUL
+BUILD: command not found
+gamut@gamutgurus:~/mypre$ Total time: 0 seconds
+No command 'Total' found, did you mean:
+ Command 'total' from package 'radiance' (universe)
+Total: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ls
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ build.xml  src
+build.xml: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ant compile
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ Buildfile: /home/gamut/mypre/build.xml
+Buildfile:: command not found
+gamut@gamutgurus:~/mypre$      [echo] project is xxxxx
+[echo]: command not found
+gamut@gamutgurus:~/mypre$ 
+ugamut@gamutgurus:~/mypre$ compile:
+compile:: command not found
+gamut@gamutgurus:~/mypre$     [mkdir] Created dir: /home/gamut/mypre/gamut.class[mkdir]: command not found
+gamut@gamutgurus:~/mypre$     [javac] /home/gamut/mypre/build.xml:6: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+[javac]: command not found
+gamut@gamutgurus:~/mypre$     [javac] Compiling 1 source file to /home/gamut/mypre/gamut.class
+[javac]: command not found
+gamut@gamutgurus:~/mypre$ 
+ogamut@gamutgurus:~/mypre$ BUILD SUCCESSFUL
+BUILD: command not found
+gamut@gamutgurus:~/mypre$ Total time: 0 seconds
+No command 'Total' found, did you mean:
+ Command 'total' from package 'radiance' (universe)
+Total: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ls
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ build.xml  gamut.class  src
+build.xml: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ cd gamut.class/
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre/gamut.class$ ls
+bash: gamut@gamutgurus:~/mypre/gamut.class$: No such file or directory
+gamut@gamutgurus:~/mypre$ login.class
+login.class: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre/gamut.class$ cd ..
+bash: gamut@gamutgurus:~/mypre/gamut.class$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ant package
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ Buildfile: /home/gamut/mypre/build.xml
+Buildfile:: command not found
+gamut@gamutgurus:~/mypre$      [echo] project is xxxxx
+[echo]: command not found
+gamut@gamutgurus:~/mypre$ 
+xgamut@gamutgurus:~/mypre$ compile:
+compile:: command not found
+gamut@gamutgurus:~/mypre$     [javac] /home/gamut/mypre/build.xml:6: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+[javac]: command not found
+gamut@gamutgurus:~/mypre$ 
+gamut@gamutgurus:~/mypre$ package:
+ was not sNo command 'package:' found, did you mean:
+ Command 'package' from package 'mailagent' (universe)
+package:: command not found
+gamut@gamutgurus:~/mypre$     [mkdir] Created dir: /home/gamut/mypre/lib
+[mkdir]: command not found
+gamut@gamutgurus:~/mypre$       [jar] Building jar: /home/gamut/mypre/lib/app.jar
+[jar]: command not found
+gamut@gamutgurus:~/mypre$ 
+ogamut@gamutgurus:~/mypre$ BUILD SUCCESSFUL
+BUILD: command not found
+gamut@gamutgurus:~/mypre$ Total time: 0 seconds
+No command 'Total' found, did you mean:
+ Command 'total' from package 'radiance' (universe)
+Total: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ls
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ build.xml  gamut.class  lib  src
+build.xml: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ c dl
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ c: command not found
+c:: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ cd lib/
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre/lib$ ls
+bash: gamut@gamutgurus:~/mypre/lib$: No such file or directory
+gamut@gamutgurus:~/mypre$ app.jar
+app.jar: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre/lib$ cd ..
+bash: gamut@gamutgurus:~/mypre/lib$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ vim
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ vim build.xml 
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ vim build.xml 
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ant
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ Buildfile: /home/gamut/mypre/build.xml
+Buildfile:: command not found
+gamut@gamutgurus:~/mypre$      [echo] project is xxxxx
+[echo]: command not found
+gamut@gamutgurus:~/mypre$ 
+mgamut@gamutgurus:~/mypre$ BUILD SUCCESSFUL
+BUILD: command not found
+gamut@gamutgurus:~/mypre$ Total time: 0 seconds
+No command 'Total' found, did you mean:
+ Command 'total' from package 'radiance' (universe)
+Total: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ls
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ build.xml  gamut.class  lib  src
+abuild.xml: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ vim build.xml 
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ls
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ build.xml  gamut.class  lib  src
+build.xml: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ant
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ Buildfile: /home/gamut/mypre/build.xml
+Buildfile:: command not found
+gamut@gamutgurus:~/mypre$      [echo] project is xxxxx
+[echo]: command not found
+gamut@gamutgurus:~/mypre$ 
+gamut@gamutgurus:~/mypre$ BUILD SUCCESSFUL
+BUILD: command not found
+gamut@gamutgurus:~/mypre$ Total time: 0 seconds
+No command 'Total' found, did you mean:
+ Command 'total' from package 'radiance' (universe)
+Total: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ls
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ build.xml  gamut.class  lib  src
+build.xml: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ant clean
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ Buildfile: /home/gamut/mypre/build.xml
+Buildfile:: command not found
+gamut@gamutgurus:~/mypre$      [echo] project is xxxxx
+[echo]: command not found
+gamut@gamutgurus:~/mypre$ 
+gamut@gamutgurus:~/mypre$ clean:
+clean:: command not found
+gamut@gamutgurus:~/mypre$    [delete] Deleting directory /home/gamut/mypre/lib
+[delete]: command not found
+gamut@gamutgurus:~/mypre$    [delete] Deleting directory /home/gamut/mypre/gamut.class
+[delete]: command not found
+gamut@gamutgurus:~/mypre$ 
+gamut@gamutgurus:~/mypre$ BUILD SUCCESSFUL
+BUILD: command not found
+gamut@gamutgurus:~/mypre$ Total time: 0 seconds
+No command 'Total' found, did you mean:
+ Command 'total' from package 'radiance' (universe)
+Total: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ls
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ build.xml  src
+build.xml: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ vim build.xml 
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ bash: syntax error near unexpected token `newline'
+> gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+> bash: syntax error near unexpected token `newline'
+> gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+> bash: syntax error near unexpected token `newline'
+bash: command substitution: line 1: unexpected EOF while looking for matching `''
+bash: command substitution: line 4: syntax error: unexpected end of file
+No command 'bash:' found, did you mean:
+ Command 'bash' from package 'bash' (main)
+bash:: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ bash: syntax error near unexpected token `newline'
+> gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+> bash: syntax error near unexpected token `newline'
+> gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+> bash: syntax error near unexpected token `newline'
+bash: command substitution: line 1: unexpected EOF while looking for matching `''
+bash: command substitution: line 4: syntax error: unexpected end of file
+No command 'bash:' found, did you mean:
+ Command 'bash' from package 'bash' (main)
+bash:: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ bash: syntax error near unexpected token `newline'
+> gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+> bash: syntax error near unexpected token `newline'
+> gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+> bash: syntax error near unexpected token `newline'
+bash: command substitution: line 1: unexpected EOF while looking for matching `''
+bash: command substitution: line 4: syntax error: unexpected end of file
+No command 'bash:' found, did you mean:
+ Command 'bash' from package 'bash' (main)
+bash:: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ bash: syntax error near unexpected token `newline'
+> gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+> bash: syntax error near unexpected token `newline'
+> gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+> bash: syntax error near unexpected token `newline'
+bash: command substitution: line 1: unexpected EOF while looking for matching `''
+bash: command substitution: line 4: syntax error: unexpected end of file
+No command 'bash:' found, did you mean:
+ Command 'bash' from package 'bash' (main)
+bash:: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ bash: syntax error near unexpected token `newline'
+> gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+> bash: syntax error near unexpected token `newline'
+> gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+> bash: syntax error near unexpected token `newline'
+bash: command substitution: line 1: unexpected EOF while looking for matching `''
+bash: command substitution: line 4: syntax error: unexpected end of file
+No command 'bash:' found, did you mean:
+ Command 'bash' from package 'bash' (main)
+bash:: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+bash: syntax error near unexpected token `newline'
+gamut@gamutgurus:~/mypre$ bash: syntax error near unexpected token `newline'
+> gamut@gamutgurus:~/mypre$ <target name="package" depends="compile">
+> bash: syntax error near unexpected token `newline'
+> gamut@gamutgurus:~/mypre$ <mkdir dir="lib"/>
+> bash: syntax error near unexpected token `newline'
+bash: command substitution: line 1: unexpected EOF while looking for matching `''
+bash: command substitution: line 4: syntax error: unexpected end of file
+No command 'bash:' found, did you mean:
+ Command 'bash' from package 'bash' (main)
+bash:: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ls
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ build.xml  src
+build.xml: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ vi build.xml 
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ant
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ Buildfile: /home/gamut/mypre/build.xml
+Buildfile:: command not found
+gamut@gamutgurus:~/mypre$ 
+gamut@gamutgurus:~/mypre$ BUILD FAILED
+BUILD: command not found
+gamut@gamutgurus:~/mypre$ /home/gamut/mypre/build.xml:2: Element type "project" must be followed by either attribute specifications, ">" or "/>".
+bash: /home/gamut/mypre/build.xml:2:: No such file or directory
+gamut@gamutgurus:~/mypre$ 
+gamut@gamutgurus:~/mypre$ Total time: 0 seconds
+No command 'Total' found, did you mean:
+ Command 'total' from package 'radiance' (universe)
+Total: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ant clean
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ Buildfile: /home/gamut/mypre/build.xml
+Buildfile:: command not found
+gamut@gamutgurus:~/mypre$ 
+gamut@gamutgurus:~/mypre$ BUILD FAILED
+BUILD: command not found
+gamut@gamutgurus:~/mypre$ /home/gamut/mypre/build.xml:2: Element type "project" must be followed by either attribute specifications, ">" or "/>".
+bash: /home/gamut/mypre/build.xml:2:: No such file or directory
+gamut@gamutgurus:~/mypre$ 
+gamut@gamutgurus:~/mypre$ Total time: 0 seconds
+No command 'Total' found, did you mean:
+ Command 'total' from package 'radiance' (universe)
+Total: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ vi build.xml 
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ant
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ Buildfile: /home/gamut/mypre/build.xml
+Buildfile:: command not found
+gamut@gamutgurus:~/mypre$      [echo] project is gamut
+[echo]: command not found
+gamut@gamutgurus:~/mypre$ 
+gamut@gamutgurus:~/mypre$ compile:
+compile:: command not found
+gamut@gamutgurus:~/mypre$     [mkdir] Created dir: /home/gamut/mypre/gamut.class[mkdir]: command not found
+gamut@gamutgurus:~/mypre$     [javac] /home/gamut/mypre/build.xml:6: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+[javac]: command not found
+gamut@gamutgurus:~/mypre$     [javac] Compiling 1 source file to /home/gamut/mypre/gamut.class
+[javac]: command not found
+gamut@gamutgurus:~/mypre$ 
+gamut@gamutgurus:~/mypre$ package:
+No command 'package:' found, did you mean:
+ Command 'package' from package 'mailagent' (universe)
+package:: command not found
+gamut@gamutgurus:~/mypre$     [mkdir] Created dir: /home/gamut/mypre/lib
+[mkdir]: command not found
+gamut@gamutgurus:~/mypre$       [jar] Building jar: /home/gamut/mypre/lib/app.jar
+[jar]: command not found
+gamut@gamutgurus:~/mypre$ 
+gamut@gamutgurus:~/mypre$ BUILD SUCCESSFUL
+BUILD: command not found
+gamut@gamutgurus:~/mypre$ Total time: 0 seconds
+No command 'Total' found, did you mean:
+ Command 'total' from package 'radiance' (universe)
+Total: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ls
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ build.xml  gamut.class  lib  src
+build.xml: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ant clean
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ Buildfile: /home/gamut/mypre/build.xml
+Buildfile:: command not found
+gamut@gamutgurus:~/mypre$      [echo] project is gamut
+[echo]: command not found
+gamut@gamutgurus:~/mypre$ 
+gamut@gamutgurus:~/mypre$ clean:
+clean:: command not found
+gamut@gamutgurus:~/mypre$    [delete] Deleting directory /home/gamut/mypre/lib
+[delete]: command not found
+gamut@gamutgurus:~/mypre$    [delete] Deleting directory /home/gamut/mypre/gamut.class
+[delete]: command not found
+gamut@gamutgurus:~/mypre$ 
+gamut@gamutgurus:~/mypre$ BUILD SUCCESSFUL
+BUILD: command not found
+gamut@gamutgurus:~/mypre$ Total time: 0 seconds
+No command 'Total' found, did you mean:
+ Command 'total' from package 'radiance' (universe)
+Total: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ ls
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ build.xml  src
+build.xml: command not found
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ vi build.xml 
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ gamut@gamutgurus:~/mypre$ 
+bash: gamut@gamutgurus:~/mypre$: No such file or directory
+gamut@gamutgurus:~/mypre$ 
+

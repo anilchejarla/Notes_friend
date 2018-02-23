@@ -1,0 +1,819 @@
+
+gamut@gamutgurus:~$ cd /var/www/html
+gamut@gamutgurus:/var/www/html$ ls
+git  htpasswd  index.html  index.nginx-debian.html
+gamut@gamutgurus:/var/www/html$ cd git
+gamut@gamutgurus:/var/www/html/git$ ls
+branches  config  description  HEAD  hooks  info  objects  refs  supriya.git
+gamut@gamutgurus:/var/www/html/git$ sudo chown -R www-data:www-data /var/www/html/git
+[sudo] password for gamut: 
+gamut@gamutgurus:/var/www/html/git$ cd
+gamut@gamutgurus:~$ cd /etc/nginx/sites-available/
+gamut@gamutgurus:/etc/nginx/sites-available$ ls
+default
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default 
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+nginx: configuration file /etc/nginx/nginx.conf test failed
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+nginx: configuration file /etc/nginx/nginx.conf test failed
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo htpasswd -c /var/www/html/git/htpasswd gamut
+New password: 
+Re-type new password: 
+Adding password for user gamut
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo systemctl restart nginx
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo systemctl status nginx
+● nginx.service - A high performance web server and a reverse proxy server
+   Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: en
+   Active: active (running) since Fri 2018-01-05 12:45:14 IST; 11s ago
+  Process: 6492 ExecStop=/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 -
+  Process: 6502 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code
+  Process: 6497 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process 
+ Main PID: 6505 (nginx)
+    Tasks: 3
+   Memory: 2.2M
+      CPU: 49ms
+   CGroup: /system.slice/nginx.service
+           ├─6505 nginx: master process /usr/sbin/nginx -g daemon on; master_pro
+           ├─6506 nginx: worker process                           
+           └─6507 nginx: worker process                           
+
+Jan 05 12:45:14 gamutgurus.com systemd[1]: Starting A high performance web serve
+Jan 05 12:45:14 gamutgurus.com systemd[1]: Started A high performance web server
+gamut@gamutgurus:/etc/nginx/sites-available$ cd
+gamut@gamutgurus:~$ cd /var/www/html/git
+gamut@gamutgurus:/var/www/html/git$ sudo mkdir priya.git
+gamut@gamutgurus:/var/www/html/git$ ls
+branches  description  hooks     info     priya.git  supriya.git
+config    HEAD         htpasswd  objects  refs
+gamut@gamutgurus:/var/www/html/git$ sudo git init --bare --shared priya.git/
+Initialized empty shared Git repository in /var/www/html/git/priya.git/
+gamut@gamutgurus:/var/www/html/git$ sudo git update -server-info
+git: 'update' is not a git command. See 'git --help'.
+
+Did you mean this?
+	update-ref
+gamut@gamutgurus:/var/www/html/git$ sudo git update-server-info
+gamut@gamutgurus:/var/www/html/git$ sudo git status
+fatal: This operation must be run in a work tree
+gamut@gamutgurus:/var/www/html/git$ cd
+gamut@gamutgurus:~$ sudo git update-server-info
+gamut@gamutgurus:~$ sudo git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.ICEauthority
+	.Xauthority
+	.bash_history
+	.bash_logout
+	.bashrc
+	.bashrc.swp
+	.cache/
+	.config/
+	.dbus/
+	.dmrc
+	.gitconfig
+	.hudson/
+	.java/
+	.jenkins/
+	.lesshst
+	.local/
+	.m2/
+	.mozilla/
+	.oracle_jre_usage/
+	.profile
+	.subversion/
+	.sudo_as_admin_successful
+	.vim/
+	.viminfo
+	.xsession-errors
+	.xsession-errors.old
+	Documents/
+	Downloads/
+	apt-transport-https
+	ca-certificates
+	commercial/
+	curl
+	examples.desktop
+	project/
+	software-properties-common
+	subversion/
+	supriya/
+
+nothing added to commit but untracked files present (use "git add" to track)
+gamut@gamutgurus:~$ cd
+gamut@gamutgurus:~$ sudo git update-server-info
+gamut@gamutgurus:~$ sudo chdown -R www-data.www-data .
+sudo: chdown: command not found
+gamut@gamutgurus:~$ sudo chown -R www-data.www-data .
+gamut@gamutgurus:~$ sudo chmod -R 777 .
+gamut@gamutgurus:~$ 
+gamut@gamutgurus:~$ mkdir proxytem
+gamut@gamutgurus:~$ ls
+apt-transport-https  Downloads         project                     Templates
+ca-certificates      examples.desktop  project.git                 Videos
+commercial           first             proxytem                    xyz
+curl                 initial           software-properties-common
+Desktop              Music             subversion
+Documents            practice          supriya
+gamut@gamutgurus:~$ ls
+apt-transport-https  Downloads         project                     Templates
+ca-certificates      examples.desktop  project.git                 Videos
+commercial           first             proxytem                    xyz
+curl                 initial           software-properties-common
+Desktop              Music             subversion
+Documents            practice          supriya
+gamut@gamutgurus:~$ ls
+apt-transport-https  Downloads         project                     Templates
+ca-certificates      examples.desktop  project.git                 Videos
+commercial           first             proxytem                    xyz
+curl                 initial           software-properties-common
+Desktop              Music             subversion
+Documents            practice          supriya
+gamut@gamutgurus:~$ cd proxytem
+gamut@gamutgurus:~/proxytem$ ls
+gamut@gamutgurus:~/proxytem$ sudo apt-get install git -y
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+git is already the newest version (1:2.7.4-0ubuntu1.3).
+0 upgraded, 0 newly installed, 0 to remove and 550 not upgraded.
+gamut@gamutgurus:~/proxytem$ git init
+Initialized empty Git repository in /home/gamut/proxytem/.git/
+gamut@gamutgurus:~/proxytem$ cd
+gamut@gamutgurus:~$ sudo apt-get install git -y
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+git is already the newest version (1:2.7.4-0ubuntu1.3).
+0 upgraded, 0 newly installed, 0 to remove and 550 not upgraded.
+gamut@gamutgurus:~$ ls
+apt-transport-https  Downloads         project                     Templates
+ca-certificates      examples.desktop  project.git                 Videos
+commercial           first             proxytem                    xyz
+curl                 initial           software-properties-common
+Desktop              Music             subversion
+Documents            practice          supriya
+gamut@gamutgurus:~$ cd proxytem
+gamut@gamutgurus:~/proxytem$ git init
+Reinitialized existing Git repository in /home/gamut/proxytem/.git/
+gamut@gamutgurus:~/proxytem$ git clone http://192.168.31.68/priya.git
+Cloning into 'priya'...
+Username for 'http://192.168.31.68': gamut
+Password for 'http://gamut@192.168.31.68': 
+warning: You appear to have cloned an empty repository.
+Checking connectivity... done.
+gamut@gamutgurus:~/proxytem$ ls
+priya
+gamut@gamutgurus:~/proxytem$ vim abc
+gamut@gamutgurus:~/proxytem$ git add abc
+gamut@gamutgurus:~/proxytem$ git commit abc -m "sever"
+[master (root-commit) 66302a1] sever
+ Committer: GamutGurus Technologies <gamut@gamutgurus.com>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 2 insertions(+)
+ create mode 100644 abc
+gamut@gamutgurus:~/proxytem$ git status
+On branch master
+nothing to commit, working directory clean
+gamut@gamutgurus:~/proxytem$ git push 
+fatal: No configured push destination.
+Either specify the URL from the command-line or configure a remote repository using
+
+    git remote add <name> <url>
+
+and then push using the remote name
+
+    git push <name>
+
+gamut@gamutgurus:~/proxytem$ git remote add origin http://192.168.31.11/gamutgurus.git
+gamut@gamutgurus:~/proxytem$ git remote add origin http://192.168.31.68/priya.git
+fatal: remote origin already exists.
+gamut@gamutgurus:~/proxytem$ git remote add http://192.168.31.68/priya.gitusage: git remote add [<options>] <name> <url>
+
+    -f, --fetch           fetch the remote branches
+    --tags                import all tags and associated objects when fetching
+                          or do not fetch any tag at all (--no-tags)
+    -t, --track <branch>  branch(es) to track
+    -m, --master <branch>
+                          master branch
+    --mirror[=<push|fetch>]
+                          set up remote as a mirror to push to or fetch from
+
+gamut@gamutgurus:~/proxytem$ sudo git remote add origin http://192.168.31.68/priya.git
+fatal: remote origin already exists.
+gamut@gamutgurus:~/proxytem$ git remote add origin http://192.168.31.68/git/priya.git
+fatal: remote origin already exists.
+gamut@gamutgurus:~/proxytem$ git remote add abc http://192.168.31.68/priya.git
+gamut@gamutgurus:~/proxytem$ git push abc
+Username for 'http://192.168.31.68': gamut
+Password for 'http://gamut@192.168.31.68': 
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 222 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To http://192.168.31.68/priya.git
+ * [new branch]      master -> master
+gamut@gamutgurus:~/proxytem$ git remote -v
+abc	http://192.168.31.68/priya.git (fetch)
+abc	http://192.168.31.68/priya.git (push)
+origin	http://192.168.31.11/gamutgurus.git (fetch)
+origin	http://192.168.31.11/gamutgurus.git (push)
+gamut@gamutgurus:~/proxytem$ git push origin master
+fatal: unable to access 'http://192.168.31.11/gamutgurus.git/': Failed to connect to 192.168.31.11 port 80: Connection refused
+gamut@gamutgurus:~/proxytem$ cd 
+gamut@gamutgurus:~$ cd /var/www/html/git/priya.git
+gamut@gamutgurus:/var/www/html/git/priya.git$ ls
+branches  config  description  HEAD  hooks  info  objects  refs
+gamut@gamutgurus:/var/www/html/git/priya.git$ cd 
+gamut@gamutgurus:~$ mkdir sreeja
+gamut@gamutgurus:~$ cd s
+sreeja/     subversion/ supriya/    
+gamut@gamutgurus:~$ cd sreeja
+gamut@gamutgurus:~/sreeja$ git init
+Initialized empty Git repository in /home/gamut/sreeja/.git/
+gamut@gamutgurus:~/sreeja$ git clone http://192.168.31.68/priya.git
+Cloning into 'priya'...
+Username for 'http://192.168.31.68': gamut
+Password for 'http://gamut@192.168.31.68': 
+remote: Counting objects: 3, done.
+remote: Total 3 (delta 0), reused 0 (delta 0)
+Unpacking objects: 100% (3/3), done.
+Checking connectivity... done.
+gamut@gamutgurus:~/sreeja$ ls
+priya
+gamut@gamutgurus:~/sreeja$ cd priya/
+gamut@gamutgurus:~/sreeja/priya$ ls
+abc
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:~$ cd /var/www/html
+gamut@gamutgurus:~$ cd /var/www/html
+gamut@gamutgurus:/var/www/html$ ls
+git  htpasswd  index.html  index.nginx-debian.html
+gamut@gamutgurus:/var/www/html$ cd git
+gamut@gamutgurus:/var/www/html/git$ ls
+branches  config  description  HEAD  hooks  info  objects  refs  supriya.git
+gamut@gamutgurus:/var/www/html/git$ sudo chown -R www-data:www-data /var/www/html/git
+[sudo] password for gamut: 
+gamut@gamutgurus:/var/www/html/git$ cd
+gamut@gamutgurus:~$ cd /etc/nginx/sites-available/
+gamut@gamutgurus:/etc/nginx/sites-available$ ls
+default
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default 
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+nginx: configuration file /etc/nginx/nginx.conf test failed
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+nginx: configuration file /etc/nginx/nginx.conf test failed
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -tgamut@gamutgurus:~$ cd /var/www/html
+gamut@gamutgurus:/var/www/html$ ls
+git  htpasswd  index.html  index.nginx-debian.html
+gamut@gamutgurus:/var/www/html$ cd git
+gamut@gamutgurus:/var/www/html/git$ ls
+branches  config  description  HEAD  hooks  info  objects  refs  supriya.git
+gamut@gamutgurus:/var/www/html/git$ sudo chown -R www-data:www-data /var/www/html/git
+[sudo] password for gamut: 
+gamut@gamutgurus:/var/www/html/git$ cd
+gamut@gamutgurus:~$ cd /etc/nginx/sites-available/
+gamut@gamutgurus:/etc/nginx/sites-available$ ls
+default
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default 
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+nginx: configuration file /etc/nginx/nginx.conf test failed
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+nginx: configuration file /etc/nginx/nginx.conf test failed
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -tgamut@gamutgurus:~$ cd /var/www/html
+gamut@gamutgurus:/var/www/html$ ls
+git  htpasswd  index.html  index.nginx-debian.html
+gamut@gamutgurus:/var/www/html$ cd git
+gamut@gamutgurus:/var/www/html/git$ ls
+branches  config  description  HEAD  hooks  info  objects  refs  supriya.git
+gamut@gamutgurus:/var/www/html/git$ sudo chown -R www-data:www-data /var/www/html/git
+[sudo] password for gamut: 
+gamut@gamutgurus:/var/www/html/git$ cd
+gamut@gamutgurus:~$ cd /etc/nginx/sitegamut@gamutgurus:~$: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html$ ls
+bash: gamut@gamutgurus:/var/www/html$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ git  htpasswd  index.html  index.nginx-debian.html
+git: 'htpasswd' is not a git command. See 'git --help'.
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html$ cd git
+bash: gamut@gamutgurus:/var/www/html$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html/git$ ls
+bash: gamut@gamutgurus:/var/www/html/git$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ branches  config  description  HEAD  hooks  info  objects  refs  supriya.git
+branches: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html/git$ sudo chown -R www-data:www-data /var/www/html/git
+bash: gamut@gamutgurus:/var/www/html/git$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ [sudo] password for gamut: 
+[sudo]: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html/git$ cd
+bash: gamut@gamutgurus:/var/www/html/git$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:~$ cd /etc/nginx/sites-available/
+gamut@gamutgurus:~$: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ lsbash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ default
+No command 'default' found, did you mean:
+ Command 'defaults' from package 'gnustep-base-runtime' (universe)
+default: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default 
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-light' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-extras' (universe)
+ Command 'nginx' from package 'nginx-full' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ nginx: configuration file /etc/nginx/nginx.conf test failed
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-full' (universe)
+ Command 'nginx' from package 'nginx-extras' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-light' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+.nginx-debian.html
+gbash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-light' (universe)
+ Command 'nginx' from package 'nginx-extras' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-full' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ nginx: configuration file /etc/nginx/nginx.conf test failed
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-light' (universe)
+ Command 'nginx' from package 'nginx-full' (universe)
+ Command 'nginx' from package 'nginx-extras' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -tgamut@gamutgurus:~$ cd /var/www/html
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html$ ls
+bash: gamut@gamutgurus:/var/www/html$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ git  htpasswd  index.html  index.nginx-debian.html
+git: 'htpasswd' is not a git command. See 'git --help'.
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html$ cd git
+bash: gamut@gamutgurus:/var/www/html$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html/git$ ls
+bash: gamut@gamutgurus:/var/www/html/git$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ branches  config  description  HEAD  hooks  info  objects  refs  supriya.git
+branches: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html/git$ sudo chown -R www-data:www-data /var/www/html/git
+bash: gamut@gamutgurus:/var/www/html/git$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ [sudo] password for gamut: 
+[sudo]: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html/git$ cd
+bash: gamut@gamutgurus:/var/www/html/git$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:~$ cd /etc/nginx/sites-available/
+gamut@gamutgurus:~$: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ lsbash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ default
+No command 'default' found, did you mean:
+ Command 'defaults' from package 'gnustep-base-runtime' (universe)
+default: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default 
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-extras' (universe)
+ Command 'nginx' from package 'nginx-full' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-light' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ nginx: configuration file /etc/nginx/nginx.conf test failed
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-full' (universe)
+ Command 'nginx' from package 'nginx-extras' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-light' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-light' (universe)
+ Command 'nginx' from package 'nginx-extras' (universe)
+ Command 'nginx' from package 'nginx-full' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ nginx: configuration file /etc/nginx/nginx.conf test failed
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-full' (universe)
+ Command 'nginx' from package 'nginx-light' (universe)
+ Command 'nginx' from package 'nginx-extras' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -tgamut@gamutgurus:~$ cd /var/www/html
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html$ ls
+bash: gamut@gamutgurus:/var/www/html$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ git  htpasswd  index.html  index.nginx-debian.html
+git: 'htpasswd' is not a git command. See 'git --help'.
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html$ cd git
+bash: gamut@gamutgurus:/var/www/html$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html/git$ ls
+bash: gamut@gamutgurus:/var/www/html/git$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ branches  config  description  HEAD  hooks  info  objects  refs  supriya.git
+branches: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html/git$ sudo chown -R www-data:www-data /var/www/html/git
+bash: gamut@gamutgurus:/var/www/html/git$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ [sudo] password for gamut: 
+[sudo]: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html/git$ cd
+bash: gamut@gamutgurus:/var/www/html/git$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:~$ cd /etc/nginx/sites-available/
+gamut@gamutgurus:~$: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ lsbash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ default
+No command 'default' found, did you mean:
+ Command 'defaults' from package 'gnustep-base-runtime' (universe)
+default: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default 
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-full' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-light' (universe)
+ Command 'nginx' from package 'nginx-extras' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ nginx: configuration file /etc/nginx/nginx.conf test failed
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-light' (universe)
+ Command 'nginx' from package 'nginx-extras' (universe)
+ Command 'nginx' from package 'nginx-full' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-extras' (universe)
+ Command 'nginx' from package 'nginx-full' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-light' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ nginx: configuration file /etc/nginx/nginx.conf test failed
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-light' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-full' (universe)
+ Command 'nginx' from package 'nginx-extras' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -tgamut@gamutgurus:~$ cd /var/www/html
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html$ ls
+bash: gamut@gamutgurus:/var/www/html$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ git  htpasswd  index.html  index.nginx-debian.html
+git: 'htpasswd' is not a git command. See 'git --help'.
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html$ cd git
+bash: gamut@gamutgurus:/var/www/html$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html/git$ ls
+bash: gamut@gamutgurus:/var/www/html/git$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ branches  config  description  HEAD  hooks  info  objects  refs  supriya.git
+branches: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html/git$ sudo chown -R www-data:www-data /var/www/html/git
+bash: gamut@gamutgurus:/var/www/html/git$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ [sudo] password for gamut: 
+[sudo]: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html/git$ cd
+bash: gamut@gamutgurus:/var/www/html/git$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:~$ cd /etc/nginx/sites-available/
+gamut@gamutgurus:~$ cd /var/www/html
+gamut@gamutgurus:/var/www/html$ ls
+git  htpasswd  index.html  index.nginx-debian.html
+gamut@gamutgurus:/var/www/html$ cd git
+gamut@gamutgurus:/var/www/html/git$ ls
+branches  config  description  HEAD  hooks  info  objects  refs  supriya.git
+gamut@gamutgurus:/var/www/html/git$ sudo chown -R www-data:www-data /var/www/html/git
+[sudo] password for gamut: 
+gamut@gamutgurus:/var/www/html/git$ cd
+gamut@gamutgurus:~$ cd /etc/nginx/sites-available/
+gamut@gamutgurus:/etc/nginx/sites-available$ ls
+default
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default 
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+nginx: configuration file /etc/nginx/nginx.conf test failed
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+nginx: configuration file /etc/nginx/nginx.conf test failed
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -tgamut@gamutgurus:~$: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ lsbash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ default
+No command 'default' found, did you mean:
+ Command 'defaults' from package 'gnustep-base-runtime' (universe)
+default: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default 
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-light' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-extras' (universe)
+ Command 'nginx' from package 'nginx-full' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ nginx: configuration file /etc/nginx/nginx.conf test failed
+gamut@gamutgurus:~$ cd /var/www/html
+gamut@gamutgurus:/var/www/html$ ls
+git  htpasswd  index.html  index.nginx-debian.html
+gamut@gamutgurus:/var/www/html$ cd git
+gamut@gamutgurus:/var/www/html/git$ ls
+branches  config  description  HEAD  hooks  info  objects  refs  supriya.git
+gamut@gamutgurus:/var/www/html/git$ sudo chown -R www-data:www-data /var/www/html/git
+[sudo] password for gamut: 
+gamut@gamutgurus:/var/www/html/git$ cd
+gamut@gamutgurus:~$ cd /etc/nginx/sites-available/
+gamut@gamutgurus:/etc/nginx/sites-available$ ls
+default
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default 
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+nginx: configuration file /etc/nginx/nginx.conf test failed
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+nginx: configuration file /etc/nginx/nginx.conf test failed
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -tNo command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-light' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-extras' (universe)
+ Command 'nginx' from package 'nginx-full' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-extras' (universe)
+ Command 'nginx' from package 'nginx-light' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-full' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ nginx: configuration file /etc/nginx/nginx.conf test failed
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-full' (universe)
+ Command 'nginx' from package 'nginx-light' (universe)
+ Command 'nginx' from package 'nginx-extras' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -tgamut@gamutgurus:~$ cd /var/www/html
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html$ ls
+bash: gamut@gamutgurus:/var/www/html$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ git  htpasswd  index.html  index.nginx-debian.html
+git: 'htpasswd' is not a git command. See 'git --help'.
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html$ cd git
+bash: gamut@gamutgurus:/var/www/html$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html/git$ ls
+bash: gamut@gamutgurus:/var/www/html/git$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ branches  config  description  HEAD  hooks  info  objects  refs  supriya.git
+branches: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html/git$ sudo chown -R www-data:www-data /var/www/html/git
+bash: gamut@gamutgurus:/var/www/html/git$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ [sudo] password for gamut: 
+[sudo]: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html/git$ cd
+bash: gamut@gamutgurus:/var/www/html/git$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:~$ cd /etc/nginx/sites-available/
+gamut@gamutgurus:~$: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ lsbash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ default
+No command 'default' found, did you mean:
+ Command 'defaults' from package 'gnustep-base-runtime' (universe)
+default: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default 
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-light' (universe)
+ Command 'nginx' from package 'nginx-full' (universe)
+ Command 'nginx' from package 'nginx-extras' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ nginx: configuration file /etc/nginx/nginx.conf test failed
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-extras' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-full' (universe)
+ Command 'nginx' from package 'nginx-light' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-extras' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-full' (universe)
+ Command 'nginx' from package 'nginx-light' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ nginx: configuration file /etc/nginx/nginx.conf test failed
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-extras' (universe)
+ Command 'nginx' from package 'nginx-full' (universe)
+ Command 'nginx' from package 'nginx-light' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -tgamut@gamutgurus:~$ cd /var/www/html
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html$ ls
+bash: gamut@gamutgurus:/var/www/html$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ git  htpasswd  index.html  index.nginx-debian.html
+git: 'htpasswd' is not a git command. See 'git --help'.
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html$ cd git
+bash: gamut@gamutgurus:/var/www/html$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html/git$ ls
+bash: gamut@gamutgurus:/var/www/html/git$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ branches  config  description  HEAD  hooks  info  objects  refs  supriya.git
+branches: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html/git$ sudo chown -R www-data:www-data /var/www/html/git
+bash: gamut@gamutgurus:/var/www/html/git$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ [sudo] password for gamut: 
+[sudo]: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html/git$ cd
+bash: gamut@gamutgurus:/var/www/html/git$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:~$ cd /etc/nginx/sites-available/
+gamut@gamutgurus:~$: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ lsbash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ default
+No command 'default' found, did you mean:
+ Command 'defaults' from package 'gnustep-base-runtime' (universe)
+default: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default 
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-light' (universe)
+ Command 'nginx' from package 'nginx-extras' (universe)
+ Command 'nginx' from package 'nginx-full' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ nginx: configuration file /etc/nginx/nginx.conf test failed
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-full' (universe)
+ Command 'nginx' from package 'nginx-extras' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-light' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-light' (universe)
+ Command 'nginx' from package 'nginx-extras' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-full' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ nginx: configuration file /etc/nginx/nginx.conf test failed
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-light' (universe)
+ Command 'nginx' from package 'nginx-extras' (universe)
+ Command 'nginx' from package 'nginx-full' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -tgamut@gamutgurus:~$ cd /var/www/html
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html$ ls
+bash: gamut@gamutgurus:/var/www/html$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ git  htpasswd  index.html  index.nginx-debian.html
+git: 'htpasswd' is not a git command. See 'git --help'.
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html$ cd git
+bash: gamut@gamutgurus:/var/www/html$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html/git$ ls
+bash: gamut@gamutgurus:/var/www/html/git$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ branches  config  description  HEAD  hooks  info  objects  refs  supriya.git
+branches: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html/git$ sudo chown -R www-data:www-data /var/www/html/git
+bash: gamut@gamutgurus:/var/www/html/git$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ [sudo] password for gamut: 
+[sudo]: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/var/www/html/git$ cd
+bash: gamut@gamutgurus:/var/www/html/git$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:~$ cd /etc/nginx/sites-available/
+gamut@gamutgurus:~$: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ lsbash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ default
+No command 'default' found, did you mean:
+ Command 'defaults' from package 'gnustep-base-runtime' (universe)
+default: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default 
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-light' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-full' (universe)
+ Command 'nginx' from package 'nginx-extras' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ nginx: configuration file /etc/nginx/nginx.conf test failed
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-light' (universe)
+ Command 'nginx' from package 'nginx-extras' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-full' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ nginx: [emerg] unexpected "}" in /etc/nginx/sites-enabled/default:82
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-light' (universe)
+ Command 'nginx' from package 'nginx-extras' (universe)
+ Command 'nginx' from package 'nginx-full' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ nginx: configuration file /etc/nginx/nginx.conf test failed
+No command 'nginx:' found, did you mean:
+ Command 'nginx' from package 'nginx-light' (universe)
+ Command 'nginx' from package 'nginx-core' (main)
+ Command 'nginx' from package 'nginx-full' (universe)
+ Command 'nginx' from package 'nginx-extras' (universe)
+nginx:: command not found
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo vim default
+bash: gamut@gamutgurus:/etc/nginx/sites-available$: No such file or directory
+gamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -tgamut@gamutgurus:~/sreeja/priya$ gamut@gamutgurus:/etc/nginx/sites-available$ sudo nginx -t
+

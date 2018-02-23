@@ -1,0 +1,453 @@
+
+
+gamut@gamutgurus:~$ cd /var/www/html
+gamut@gamutgurus:/var/www/html$ mkdir git
+mkdir: cannot create directory ‘git’: Permission denied
+gamut@gamutgurus:/var/www/html$ sudo su
+[sudo] password for gamut: 
+root@gamutgurus:/var/www/html# mkdir git
+root@gamutgurus:/var/www/html# ls
+git  index.html
+root@gamutgurus:/var/www/html# sudo chgrp -R www-data /var/www/html/git
+root@gamutgurus:/var/www/html#  chgrp -R www-data /var/www/html/git
+root@gamutgurus:/var/www/html# sudo chgrp -R www-data /var/www/html/git
+root@gamutgurus:/var/www/html# ssh username
+ssh: Could not resolve hostname username: No address associated with hostname
+root@gamutgurus:/var/www/html# ssh username = "gamutgurus"
+ssh: Could not resolve hostname username: No address associated with hostname
+root@gamutgurus:/var/www/html# ls-ld webapps/
+ls-ld: command not found
+root@gamutgurus:/var/www/html# ls -ld webapps/
+ls: cannot access 'webapps/': No such file or directory
+root@gamutgurus:/var/www/html# chmod 777 -R apache2-tomcat-8.5.11
+chmod: cannot access 'apache2-tomcat-8.5.11': No such file or directory
+root@gamutgurus:/var/www/html# exit
+exit
+gamut@gamutgurus:/var/www/html$ ls
+git  index.html
+gamut@gamutgurus:/var/www/html$ cd gir
+bash: cd: gir: No such file or directory
+gamut@gamutgurus:/var/www/html$ cd git
+gamut@gamutgurus:/var/www/html/git$  chgrp -R www-data /var/www/html/gitchgrp: changing group of '/var/www/html/git': Operation not permitted
+gamut@gamutgurus:/var/www/html/git$ sudo chgrp -R www-data /var/www/html/git[sudo] password for gamut: 
+gamut@gamutgurus:/var/www/html/git$ cd git
+bash: cd: git: No such file or directory
+gamut@gamutgurus:/var/www/html/git$ cd .
+gamut@gamutgurus:/var/www/html/git$ mkdir git
+mkdir: cannot create directory ‘git’: Permission denied
+gamut@gamutgurus:/var/www/html/git$ git init --bared --shared supriya.git
+error: unknown option `bared'
+usage: git init [-q | --quiet] [--bare] [--template=<template-directory>] [--shared[=<permissions>]] [<directory>]
+
+    --template <template-directory>
+                          directory from which templates will be used
+    --bare                create a bare repository
+    --shared[=<permissions>]
+                          specify that the git repository is to be shared amongst several users
+    -q, --quiet           be quiet
+    --separate-git-dir <gitdir>
+                          separate git dir from working tree
+
+gamut@gamutgurus:/var/www/html/git$ mkdir supriya.git
+mkdir: cannot create directory ‘supriya.git’: Permission denied
+gamut@gamutgurus:/var/www/html/git$ git init --bared --shared supriya.git
+error: unknown option `bared'
+usage: git init [-q | --quiet] [--bare] [--template=<template-directory>] [--shared[=<permissions>]] [<directory>]
+
+    --template <template-directory>
+                          directory from which templates will be used
+    --bare                create a bare repository
+    --shared[=<permissions>]
+                          specify that the git repository is to be shared amongst several users
+    -q, --quiet           be quiet
+    --separate-git-dir <gitdir>
+                          separate git dir from working tree
+
+gamut@gamutgurus:/var/www/html/git$ sudo mkdir supriya.git
+gamut@gamutgurus:/var/www/html/git$ git init --bared --shared
+error: unknown option `bared'
+usage: git init [-q | --quiet] [--bare] [--template=<template-directory>] [--shared[=<permissions>]] [<directory>]
+
+    --template <template-directory>
+                          directory from which templates will be used
+    --bare                create a bare repository
+    --shared[=<permissions>]
+                          specify that the git repository is to be shared amongst several users
+    -q, --quiet           be quiet
+    --separate-git-dir <gitdir>
+                          separate git dir from working tree
+
+gamut@gamutgurus:/var/www/html/git$ sudo git init --bared --shared
+error: unknown option `bared'
+usage: git init [-q | --quiet] [--bare] [--template=<template-directory>] [--shared[=<permissions>]] [<directory>]
+
+    --template <template-directory>
+                          directory from which templates will be used
+    --bare                create a bare repository
+    --shared[=<permissions>]
+                          specify that the git repository is to be shared amongst several users
+    -q, --quiet           be quiet
+    --separate-git-dir <gitdir>
+                          separate git dir from working tree
+
+gamut@gamutgurus:/var/www/html/git$ sudo git init --bare --shared
+Initialized empty shared Git repository in /var/www/html/git/
+gamut@gamutgurus:/var/www/html/git$ sudo git init --bare --shared supriya.git
+[sudo] password for gamut: 
+Initialized empty shared Git repository in /var/www/html/git/supriya.git/
+gamut@gamutgurus:/var/www/html/git$ 
+gamut@gamutgurus:/var/www/html/git$ 
+gamut@gamutgurus:/var/www/html/git$ 
+gamut@gamutgurus:/var/www/html/git$ 
+gamut@gamutgurus:/var/www/html/git$ apache2.conf
+apache2.conf: command not found
+gamut@gamutgurus:/var/www/html/git$ cd ..
+gamut@gamutgurus:/var/www/html$ apache2.conf
+apache2.conf: command not found
+gamut@gamutgurus:/var/www/html$ cd 
+gamut@gamutgurus:~$ cd etc/apache2/sites-enabled/000-default.conf
+bash: cd: etc/apache2/sites-enabled/000-default.conf: No such file or directory
+gamut@gamutgurus:~$ sudo cd etc/apache2/sites-enabled/000-default.conf
+sudo: cd: command not found
+gamut@gamutgurus:~$ cd git
+bash: cd: git: No such file or directory
+gamut@gamutgurus:~$ cd var/www/html/git
+bash: cd: var/www/html/git: No such file or directory
+gamut@gamutgurus:~$ cd /var/www/html/git
+gamut@gamutgurus:/var/www/html/git$ ls
+branches  config  description  HEAD  hooks  info  objects  refs  supriya.git
+gamut@gamutgurus:/var/www/html/git$ vim config
+gamut@gamutgurus:/var/www/html/git$ cd supriya.git/
+gamut@gamutgurus:/var/www/html/git/supriya.git$ ls
+branches  config  description  HEAD  hooks  info  objects  refs
+gamut@gamutgurus:/var/www/html/git/supriya.git$ vim config 
+gamut@gamutgurus:/var/www/html/git/supriya.git$ cd 
+gamut@gamutgurus:~$ /etc/
+bash: /etc/: Is a directory
+gamut@gamutgurus:~$ /etc/ap
+apache2/    apparmor/   apport/     aptdaemon/  
+apm/        apparmor.d/ apt/        
+gamut@gamutgurus:~$ /etc/apache2
+bash: /etc/apache2: Is a directory
+gamut@gamutgurus:~$ cd /etc/ap
+apache2/    apparmor/   apport/     aptdaemon/  
+apm/        apparmor.d/ apt/        
+gamut@gamutgurus:~$ cd /etc/apache2
+gamut@gamutgurus:/etc/apache2$ ls
+apache2.conf    conf-enabled  magic           mods-enabled  sites-available
+conf-available  envvars       mods-available  ports.conf    sites-enabled
+gamut@gamutgurus:/etc/apache2$ cd sites-enabled/
+gamut@gamutgurus:/etc/apache2/sites-enabled$ ls
+000-default.conf
+gamut@gamutgurus:/etc/apache2/sites-enabled$ vim 000-default.conf 
+
+[1]+  Stopped                 vim 000-default.conf
+gamut@gamutgurus:/etc/apache2/sites-enabled$ chmod 777 000-default.conf 
+chmod: changing permissions of '000-default.conf': Operation not permitted
+gamut@gamutgurus:/etc/apache2/sites-enabled$ chmod 755 000-default.conf 
+chmod: changing permissions of '000-default.conf': Operation not permitted
+gamut@gamutgurus:/etc/apache2/sites-enabled$ chmod -x+o 000-default.conf 
+chmod: changing permissions of '000-default.conf': Operation not permitted
+gamut@gamutgurus:/etc/apache2/sites-enabled$ vim 000-default.conf 
+
+[2]+  Stopped                 vim 000-default.conf
+gamut@gamutgurus:/etc/apache2/sites-enabled$ sudo vim 000-default.conf 
+[sudo] password for gamut: 
+gamut@gamutgurus:/etc/apache2/sites-enabled$ sudo vim 000-default.conf 
+gamut@gamutgurus:/etc/apache2/sites-enabled$ vim 000-default.conf 
+
+[3]+  Stopped                 vim 000-default.conf
+gamut@gamutgurus:/etc/apache2/sites-enabled$ sudo vim 000-default.conf 
+gamut@gamutgurus:/etc/apache2/sites-enabled$ cd 
+gamut@gamutgurus:~$ htpasswd –c /var/www/html/htpasswd gamut1
+Usage:
+	htpasswd [-cimBdpsDv] [-C cost] passwordfile username
+	htpasswd -b[cmBdpsDv] [-C cost] passwordfile username password
+
+	htpasswd -n[imBdps] [-C cost] username
+	htpasswd -nb[mBdps] [-C cost] username password
+ -c  Create a new file.
+ -n  Don't update file; display results on stdout.
+ -b  Use the password from the command line rather than prompting for it.
+ -i  Read password from stdin without verification (for script usage).
+ -m  Force MD5 encryption of the password (default).
+ -B  Force bcrypt encryption of the password (very secure).
+ -C  Set the computing time used for the bcrypt algorithm
+     (higher is more secure but slower, default: 5, valid: 4 to 31).
+ -d  Force CRYPT encryption of the password (8 chars max, insecure).
+ -s  Force SHA encryption of the password (insecure).
+ -p  Do not encrypt the password (plaintext, insecure).
+ -D  Delete the specified user.
+ -v  Verify password for the specified user.
+On other systems than Windows and NetWare the '-p' flag will probably not work.
+The SHA algorithm does not use a salt and is less secure than the MD5 algorithm.
+gamut@gamutgurus:~$ sudo htpasswd –c /var/www/html/htpasswd gamut1
+Usage:
+	htpasswd [-cimBdpsDv] [-C cost] passwordfile username
+	htpasswd -b[cmBdpsDv] [-C cost] passwordfile username password
+
+	htpasswd -n[imBdps] [-C cost] username
+	htpasswd -nb[mBdps] [-C cost] username password
+ -c  Create a new file.
+ -n  Don't update file; display results on stdout.
+ -b  Use the password from the command line rather than prompting for it.
+ -i  Read password from stdin without verification (for script usage).
+ -m  Force MD5 encryption of the password (default).
+ -B  Force bcrypt encryption of the password (very secure).
+ -C  Set the computing time used for the bcrypt algorithm
+     (higher is more secure but slower, default: 5, valid: 4 to 31).
+ -d  Force CRYPT encryption of the password (8 chars max, insecure).
+ -s  Force SHA encryption of the password (insecure).
+ -p  Do not encrypt the password (plaintext, insecure).
+ -D  Delete the specified user.
+ -v  Verify password for the specified user.
+On other systems than Windows and NetWare the '-p' flag will probably not work.
+The SHA algorithm does not use a salt and is less secure than the MD5 algorithm.
+gamut@gamutgurus:~$ htpasswd –c /var/www/html/htpasswd gamut1
+Usage:
+	htpasswd [-cimBdpsDv] [-C cost] passwordfile username
+	htpasswd -b[cmBdpsDv] [-C cost] passwordfile username password
+
+	htpasswd -n[imBdps] [-C cost] username
+	htpasswd -nb[mBdps] [-C cost] username password
+ -c  Create a new file.
+ -n  Don't update file; display results on stdout.
+ -b  Use the password from the command line rather than prompting for it.
+ -i  Read password from stdin without verification (for script usage).
+ -m  Force MD5 encryption of the password (default).
+ -B  Force bcrypt encryption of the password (very secure).
+ -C  Set the computing time used for the bcrypt algorithm
+     (higher is more secure but slower, default: 5, valid: 4 to 31).
+ -d  Force CRYPT encryption of the password (8 chars max, insecure).
+ -s  Force SHA encryption of the password (insecure).
+ -p  Do not encrypt the password (plaintext, insecure).
+ -D  Delete the specified user.
+ -v  Verify password for the specified user.
+On other systems than Windows and NetWare the '-p' flag will probably not work.
+The SHA algorithm does not use a salt and is less secure than the MD5 algorithm.
+gamut@gamutgurus:~$ htpasswd -b[cmBdpsDv] [-C cost] passwordfile gamut gamut
+htpasswd: illegal option -- [
+Usage:
+	htpasswd [-cimBdpsDv] [-C cost] passwordfile username
+	htpasswd -b[cmBdpsDv] [-C cost] passwordfile username password
+
+	htpasswd -n[imBdps] [-C cost] username
+	htpasswd -nb[mBdps] [-C cost] username password
+ -c  Create a new file.
+ -n  Don't update file; display results on stdout.
+ -b  Use the password from the command line rather than prompting for it.
+ -i  Read password from stdin without verification (for script usage).
+ -m  Force MD5 encryption of the password (default).
+ -B  Force bcrypt encryption of the password (very secure).
+ -C  Set the computing time used for the bcrypt algorithm
+     (higher is more secure but slower, default: 5, valid: 4 to 31).
+ -d  Force CRYPT encryption of the password (8 chars max, insecure).
+ -s  Force SHA encryption of the password (insecure).
+ -p  Do not encrypt the password (plaintext, insecure).
+ -D  Delete the specified user.
+ -v  Verify password for the specified user.
+On other systems than Windows and NetWare the '-p' flag will probably not work.
+The SHA algorithm does not use a salt and is less secure than the MD5 algorithm.
+gamut@gamutgurus:~$ htpasswd -b[gamut] [-C 5] passwordfile gamut gamut
+htpasswd: illegal option -- [
+Usage:
+	htpasswd [-cimBdpsDv] [-C cost] passwordfile username
+	htpasswd -b[cmBdpsDv] [-C cost] passwordfile username password
+
+	htpasswd -n[imBdps] [-C cost] username
+	htpasswd -nb[mBdps] [-C cost] username password
+ -c  Create a new file.
+ -n  Don't update file; display results on stdout.
+ -b  Use the password from the command line rather than prompting for it.
+ -i  Read password from stdin without verification (for script usage).
+ -m  Force MD5 encryption of the password (default).
+ -B  Force bcrypt encryption of the password (very secure).
+ -C  Set the computing time used for the bcrypt algorithm
+     (higher is more secure but slower, default: 5, valid: 4 to 31).
+ -d  Force CRYPT encryption of the password (8 chars max, insecure).
+ -s  Force SHA encryption of the password (insecure).
+ -p  Do not encrypt the password (plaintext, insecure).
+ -D  Delete the specified user.
+ -v  Verify password for the specified user.
+On other systems than Windows and NetWare the '-p' flag will probably not work.
+The SHA algorithm does not use a salt and is less secure than the MD5 algorithm.
+gamut@gamutgurus:~$ htpasswd –c /var/www/html/htpasswd gamut1 gamut
+Usage:
+	htpasswd [-cimBdpsDv] [-C cost] passwordfile username
+	htpasswd -b[cmBdpsDv] [-C cost] passwordfile username password
+
+	htpasswd -n[imBdps] [-C cost] username
+	htpasswd -nb[mBdps] [-C cost] username password
+ -c  Create a new file.
+ -n  Don't update file; display results on stdout.
+ -b  Use the password from the command line rather than prompting for it.
+ -i  Read password from stdin without verification (for script usage).
+ -m  Force MD5 encryption of the password (default).
+ -B  Force bcrypt encryption of the password (very secure).
+ -C  Set the computing time used for the bcrypt algorithm
+     (higher is more secure but slower, default: 5, valid: 4 to 31).
+ -d  Force CRYPT encryption of the password (8 chars max, insecure).
+ -s  Force SHA encryption of the password (insecure).
+ -p  Do not encrypt the password (plaintext, insecure).
+ -D  Delete the specified user.
+ -v  Verify password for the specified user.
+On other systems than Windows and NetWare the '-p' flag will probably not work.
+The SHA algorithm does not use a salt and is less secure than the MD5 algorithm.
+gamut@gamutgurus:~$ htpasswd –c /var/www/html/htpasswd gamut gamut
+Usage:
+	htpasswd [-cimBdpsDv] [-C cost] passwordfile username
+	htpasswd -b[cmBdpsDv] [-C cost] passwordfile username password
+
+	htpasswd -n[imBdps] [-C cost] username
+	htpasswd -nb[mBdps] [-C cost] username password
+ -c  Create a new file.
+ -n  Don't update file; display results on stdout.
+ -b  Use the password from the command line rather than prompting for it.
+ -i  Read password from stdin without verification (for script usage).
+ -m  Force MD5 encryption of the password (default).
+ -B  Force bcrypt encryption of the password (very secure).
+ -C  Set the computing time used for the bcrypt algorithm
+     (higher is more secure but slower, default: 5, valid: 4 to 31).
+ -d  Force CRYPT encryption of the password (8 chars max, insecure).
+ -s  Force SHA encryption of the password (insecure).
+ -p  Do not encrypt the password (plaintext, insecure).
+ -D  Delete the specified user.
+ -v  Verify password for the specified user.
+On other systems than Windows and NetWare the '-p' flag will probably not work.
+The SHA algorithm does not use a salt and is less secure than the MD5 algorithm.
+gamut@gamutgurus:~$ htpasswd –nb /var/www/html/htpasswd gamut gamut
+Usage:
+	htpasswd [-cimBdpsDv] [-C cost] passwordfile username
+	htpasswd -b[cmBdpsDv] [-C cost] passwordfile username password
+
+	htpasswd -n[imBdps] [-C cost] username
+	htpasswd -nb[mBdps] [-C cost] username password
+ -c  Create a new file.
+ -n  Don't update file; display results on stdout.
+ -b  Use the password from the command line rather than prompting for it.
+ -i  Read password from stdin without verification (for script usage).
+ -m  Force MD5 encryption of the password (default).
+ -B  Force bcrypt encryption of the password (very secure).
+ -C  Set the computing time used for the bcrypt algorithm
+     (higher is more secure but slower, default: 5, valid: 4 to 31).
+ -d  Force CRYPT encryption of the password (8 chars max, insecure).
+ -s  Force SHA encryption of the password (insecure).
+ -p  Do not encrypt the password (plaintext, insecure).
+ -D  Delete the specified user.
+ -v  Verify password for the specified user.
+On other systems than Windows and NetWare the '-p' flag will probably not work.
+The SHA algorithm does not use a salt and is less secure than the MD5 algorithm.
+gamut@gamutgurus:~$ sudo htpasswd  /var/www/html/htpasswd gamut1
+htpasswd: cannot modify file /var/www/html/htpasswd; use '-c' to create it
+gamut@gamutgurus:~$ sudo htpasswd –c /var/www/html/htpasswd gamut gamut
+Usage:
+	htpasswd [-cimBdpsDv] [-C cost] passwordfile username
+	htpasswd -b[cmBdpsDv] [-C cost] passwordfile username password
+
+	htpasswd -n[imBdps] [-C cost] username
+	htpasswd -nb[mBdps] [-C cost] username password
+ -c  Create a new file.
+ -n  Don't update file; display results on stdout.
+ -b  Use the password from the command line rather than prompting for it.
+ -i  Read password from stdin without verification (for script usage).
+ -m  Force MD5 encryption of the password (default).
+ -B  Force bcrypt encryption of the password (very secure).
+ -C  Set the computing time used for the bcrypt algorithm
+     (higher is more secure but slower, default: 5, valid: 4 to 31).
+ -d  Force CRYPT encryption of the password (8 chars max, insecure).
+ -s  Force SHA encryption of the password (insecure).
+ -p  Do not encrypt the password (plaintext, insecure).
+ -D  Delete the specified user.
+ -v  Verify password for the specified user.
+On other systems than Windows and NetWare the '-p' flag will probably not work.
+The SHA algorithm does not use a salt and is less secure than the MD5 algorithm.
+gamut@gamutgurus:~$ sudo htpasswd –c /var/www/html/htpasswd gamut1
+Usage:
+	htpasswd [-cimBdpsDv] [-C cost] passwordfile username
+	htpasswd -b[cmBdpsDv] [-C cost] passwordfile username password
+
+	htpasswd -n[imBdps] [-C cost] username
+	htpasswd -nb[mBdps] [-C cost] username password
+ -c  Create a new file.
+ -n  Don't update file; display results on stdout.
+ -b  Use the password from the command line rather than prompting for it.
+ -i  Read password from stdin without verification (for script usage).
+ -m  Force MD5 encryption of the password (default).
+ -B  Force bcrypt encryption of the password (very secure).
+ -C  Set the computing time used for the bcrypt algorithm
+     (higher is more secure but slower, default: 5, valid: 4 to 31).
+ -d  Force CRYPT encryption of the password (8 chars max, insecure).
+ -s  Force SHA encryption of the password (insecure).
+ -p  Do not encrypt the password (plaintext, insecure).
+ -D  Delete the specified user.
+ -v  Verify password for the specified user.
+On other systems than Windows and NetWare the '-p' flag will probably not work.
+The SHA algorithm does not use a salt and is less secure than the MD5 algorithm.
+gamut@gamutgurus:~$ sudo vim 000
+
+[4]+  Stopped                 sudo vim 000
+gamut@gamutgurus:~$ cd /var/www/html/git
+gamut@gamutgurus:/var/www/html/git$ ls
+branches  config  description  HEAD  hooks  info  objects  refs  supriya.git
+gamut@gamutgurus:/var/www/html/git$ sudo vim config
+gamut@gamutgurus:/var/www/html/git$ cd 
+gamut@gamutgurus:~$ /etc/apache2
+bash: /etc/apache2: Is a directory
+gamut@gamutgurus:~$ cd /etc/apache2
+gamut@gamutgurus:/etc/apache2$ cd sites-enabled/
+gamut@gamutgurus:/etc/apache2/sites-enabled$ ls
+000-default.conf
+gamut@gamutgurus:/etc/apache2/sites-enabled$ sudo vim 000-default.conf 
+gamut@gamutgurus:/etc/apache2/sites-enabled$ cd 
+gamut@gamutgurus:~$ htpasswd -c /var/www/html/htpasswd gamut1
+htpasswd: cannot create file /var/www/html/htpasswd
+gamut@gamutgurus:~$ sudo htpasswd -c /var/www/html/htpasswd gamut1
+New password: 
+Re-type new password: 
+Adding password for user gamut1
+gamut@gamutgurus:~$ sudo htpasswd /var/www/html/htpasswd gamut1
+New password: 
+Re-type new password: 
+Updating password for user gamut1
+gamut@gamutgurus:~$ service apache2 restart
+gamut@gamutgurus:~$ git clone http://192.168.31.68/supriya.git
+Cloning into 'supriya'...
+fatal: repository 'http://192.168.31.68/supriya.git/' not found
+gamut@gamutgurus:~$ git clone http://192.168.31.68/git/supriya.git
+Cloning into 'supriya'...
+Username for 'http://192.168.31.68': gamut1
+Password for 'http://gamut1@192.168.31.68': 
+warning: You appear to have cloned an empty repository.
+Checking connectivity... done.
+gamut@gamutgurus:~$ ls
+apt-transport-https  Documents         Music                       subversion
+ca-certificates      Downloads         practice                    supriya
+commercial           examples.desktop  project                     Templates
+curl                 first             project.git                 Videos
+Desktop              initial           software-properties-common
+gamut@gamutgurus:~$ cd supriya.git
+bash: cd: supriya.git: No such file or directory
+gamut@gamutgurus:~$ cd supriya
+gamut@gamutgurus:~/supriya$ ls
+gamut@gamutgurus:~/supriya$ cd ..
+gamut@gamutgurus:~$ ls
+apt-transport-https  Documents         Music                       subversion
+ca-certificates      Downloads         practice                    supriya
+commercial           examples.desktop  project                     Templates
+curl                 first             project.git                 Videos
+Desktop              initial           software-properties-common
+gamut@gamutgurus:~$ cd supriya/
+gamut@gamutgurus:~/supriya$ ls
+gamut@gamutgurus:~/supriya$ ^C
+gamut@gamutgurus:~/supriya$ ^C
+gamut@gamutgurus:~/supriya$ ^C
+gamut@gamutgurus:~/supriya$ ^C
+gamut@gamutgurus:~/supriya$ ^C
+gamut@gamutgurus:~/supriya$ ^C
+gamut@gamutgurus:~/supriya$ ^C
+gamut@gamutgurus:~/supriya$ ^C
+gamut@gamutgurus:~/supriya$ ^C
+gamut@gamutgurus:~/supriya$ ^C
+gamut@gamutgurus:~/supriya$ ^C
+gamut@gamutgurus:~/supriya$ 
+
